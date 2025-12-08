@@ -1,0 +1,21 @@
+{% extends 'pharmacy/base.html' %}
+{% block content %}
+  <h2>Барлық дәрілер</h2>
+  <a href="{% url 'add_medicine' %}">Жаңа дәрі қосу</a>
+  <table class="table">
+    <thead><tr><th>Атауы</th><th>Категория</th><th>Өндіруші</th><th>Баға</th><th>Қор</th></tr></thead>
+    <tbody>
+      {% for m in meds %}
+      <tr>
+        <td>{{ m.name }}</td>
+        <td>{{ m.category }}</td>
+        <td>{{ m.manufacturer }}</td>
+        <td>{{ m.price }} тг</td>
+        <td>{{ m.quantity }}</td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="5">Деректер жоқ</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

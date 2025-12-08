@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="kk">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <title>Darihana - Аптека</title>
+  <link rel="stylesheet" href="{% static 'pharmacy/css/styles.css' %}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="{% url 'home' %}">Darihana</a></h1>
+      <nav>
+        <a href="{% url 'home' %}">Басты</a> |
+        <a href="{% url 'show_medicines' %}">Барлық дәрілер</a> |
+        <a href="{% url 'add_medicine' %}">Дәрі қосу</a> |
+        <a href="{% url 'chart' %}">График</a> |
+        <a href="/admin/">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; {{ year }} Darihana. Барлық құқықтар қорғалған.
+    </div>
+  </footer>
+</body>
+</html>
